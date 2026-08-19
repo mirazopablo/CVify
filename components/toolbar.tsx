@@ -11,7 +11,7 @@ import { ATSSimulator } from "./ats-simulator"
 import { ProfileManager } from "./profile-manager"
 
 export function Toolbar() {
-  const { data, setLanguage, setData, loadSample } = useResume()
+  const { data, setLanguage, setLayout, setData, loadSample } = useResume()
   const ui = useUI()
   const [atsOpen, setAtsOpen] = useState(false)
   const [profilesOpen, setProfilesOpen] = useState(false)
@@ -53,6 +53,18 @@ export function Toolbar() {
           </button>
         ))}
       </div>
+
+      {/* Layout toggle */}
+      <select
+        value={data.layout || "classic"}
+        onChange={(e) => setLayout(e.target.value as "classic" | "modern" | "structured")}
+        className="rounded-md border border-border bg-card px-2.5 py-1.5 text-xs font-medium text-foreground hover:bg-muted outline-none focus:ring-2 focus:ring-ring"
+        aria-label="Layout"
+      >
+        <option value="classic">{ui.layoutClassic}</option>
+        <option value="modern">{ui.layoutModern}</option>
+        <option value="structured">{ui.layoutStructured}</option>
+      </select>
 
       <div className="ml-auto flex flex-wrap items-center gap-1.5">
         <ToolbarButton icon={<FolderOpen className="size-4" />} onClick={() => setProfilesOpen(true)}>

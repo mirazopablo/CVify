@@ -13,6 +13,7 @@ import type {
   ResumeData,
   SkillGroup,
   ThemeConfig,
+  TemplateLayout,
 } from "./resume-types"
 import { emptyResume, sampleResume, uid } from "./initial-data"
 import { getUILabels, type UILabels } from "./i18n"
@@ -31,6 +32,7 @@ interface ResumeContextValue {
   loadSample: () => void
 
   setLanguage: (lang: Language) => void
+  setLayout: (layout: TemplateLayout) => void
   updateTheme: (patch: Partial<ThemeConfig>) => void
   updateHeader: (patch: Partial<HeaderData>) => void
   setSummary: (value: string) => void
@@ -82,6 +84,10 @@ export function ResumeProvider({ children }: { children: React.ReactNode }) {
 
   const setLanguage = useCallback(
     (language: Language) => setDataState((d) => ({ ...d, language })),
+    [],
+  )
+  const setLayout = useCallback(
+    (layout: TemplateLayout) => setDataState((d) => ({ ...d, layout })),
     [],
   )
   const updateTheme = useCallback(
@@ -177,6 +183,7 @@ export function ResumeProvider({ children }: { children: React.ReactNode }) {
       reset,
       loadSample,
       setLanguage,
+      setLayout,
       updateTheme,
       updateHeader,
       setSummary,
@@ -207,6 +214,7 @@ export function ResumeProvider({ children }: { children: React.ReactNode }) {
       reset,
       loadSample,
       setLanguage,
+      setLayout,
       updateTheme,
       updateHeader,
       setSummary,

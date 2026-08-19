@@ -7,6 +7,7 @@ export function uid(): string {
 
 export const emptyResume: ResumeData = {
   language: "en",
+  layout: "classic",
   theme: {
     accent: "#1f6feb",
     text: "#1a1a1a",
@@ -35,6 +36,7 @@ export const emptyResume: ResumeData = {
 
 export const sampleResume: ResumeData = {
   language: "en",
+  layout: "classic",
   theme: {
     accent: "#1f6feb",
     text: "#1a1a1a",

@@ -47,9 +47,9 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
   const links = [h.website, h.github, h.linkedin].filter(Boolean)
 
   return (
-    <article id="cv-document" className="cv-root" style={styleVars} lang={data.language}>
+    <article id="cv-document" className={`cv-root template-${data.layout || "classic"}`} style={styleVars} lang={data.language}>
       {/* Header */}
-      <header className="cv-header">
+      <header className="cv-header" data-section="header">
         <div className="cv-header-main">
           <h1 className="cv-name">{h.fullName || "Your Name"}</h1>
           {h.jobTitle ? <p className="cv-title">{h.jobTitle}</p> : null}
@@ -64,7 +64,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* Summary */}
       {data.summary.trim() ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="summary">
           <h2 className="cv-section-title">{L.summary}</h2>
           <p className="cv-text">{data.summary}</p>
         </section>
@@ -72,7 +72,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* Experience */}
       {data.experience.length ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="experience">
           <h2 className="cv-section-title">{L.experience}</h2>
           {data.experience.map((e) => (
             <article key={e.id} className="cv-entry">
@@ -93,7 +93,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* Education */}
       {data.education.length ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="education">
           <h2 className="cv-section-title">{L.education}</h2>
           {data.education.map((ed) => (
             <article key={ed.id} className="cv-entry">
@@ -114,7 +114,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* Skills */}
       {data.skills.length ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="skills">
           <h2 className="cv-section-title">{L.skills}</h2>
           {data.skills.map((s) => (
             <p key={s.id} className="cv-text">
@@ -127,7 +127,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* Projects */}
       {data.projects.length ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="projects">
           <h2 className="cv-section-title">{L.projects}</h2>
           {data.projects.map((p) => (
             <article key={p.id} className="cv-entry">
@@ -148,7 +148,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* Languages */}
       {data.languages.length ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="languages">
           <h2 className="cv-section-title">{L.languages}</h2>
           <p className="cv-text">
             {data.languages.map((ln, i) => (
@@ -164,7 +164,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* Publications */}
       {data.publications.length ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="publications">
           <h2 className="cv-section-title">{L.publications}</h2>
           {data.publications.map((pb) => (
             <article key={pb.id} className="cv-entry">
@@ -178,7 +178,7 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
 
       {/* References */}
       {data.references.length ? (
-        <section className="cv-section">
+        <section className="cv-section" data-section="references">
           <h2 className="cv-section-title">{L.references}</h2>
           {data.references.map((r) => (
             <p key={r.id} className="cv-text">

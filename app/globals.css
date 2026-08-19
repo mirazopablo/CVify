@@ -303,6 +303,68 @@
 }
 
 /* ==========================================================================
+   TEMPLATE STYLES
+   ========================================================================== */
+
+/* Modern: centered header, clean lines, slightly different spacing */
+.template-modern .cv-header {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid var(--cv-accent);
+}
+.template-modern .cv-header-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.template-modern .cv-photo {
+  margin-top: 12px;
+  width: 30mm;
+  height: 30mm;
+  border-radius: 50%;
+}
+.template-modern .cv-section-title {
+  display: inline-block;
+  border-bottom: 2px solid var(--cv-accent);
+}
+.template-modern .cv-entry {
+  position: relative;
+  padding-left: 14px;
+  border-left: 2px solid color-mix(in srgb, var(--cv-muted) 20%, transparent);
+}
+
+/* Structured: two-column layout using CSS Grid */
+.template-structured.cv-root {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-flow: dense;
+  column-gap: 24px;
+}
+.template-structured > .cv-header {
+  grid-column: 1 / -1;
+  border-bottom: 2px solid var(--cv-text);
+}
+.template-structured > section {
+  align-self: start;
+}
+.template-structured > section[data-section="summary"],
+.template-structured > section[data-section="experience"],
+.template-structured > section[data-section="education"],
+.template-structured > section[data-section="projects"],
+.template-structured > section[data-section="publications"] {
+  grid-column: 1;
+}
+.template-structured > section[data-section="skills"],
+.template-structured > section[data-section="languages"],
+.template-structured > section[data-section="references"] {
+  grid-column: 2;
+}
+.template-structured .cv-section-title {
+  border-bottom: 2px solid var(--cv-accent);
+}
+
+/* ==========================================================================
    PRINT: native window.print() -> real-text PDF with linear reading order.
    Everything outside the CV is hidden. A4 page with 15mm margins.
    ========================================================================== */

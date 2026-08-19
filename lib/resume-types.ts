@@ -85,9 +85,12 @@ export interface PublicationItem {
   url: string
 }
 
+export type TemplateLayout = "classic" | "modern" | "structured"
+
 export interface ResumeData {
   language: Language
   theme: ThemeConfig
+  layout: TemplateLayout
   header: HeaderData
   summary: string
   experience: ExperienceItem[]

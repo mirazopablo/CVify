@@ -29,6 +29,11 @@ export interface UILabels {
   print: string
   privacyFooter: string
 
+  // Layouts
+  layoutClassic: string
+  layoutModern: string
+  layoutStructured: string
+
   // Profiles Modal
   privacyTitle: string
   privacyDesc: string
@@ -175,6 +180,10 @@ const uiLabelMap: Record<Language, UILabels> = {
     print: "Print / PDF",
     privacyFooter: "Privacy First: All CV data is strictly stored in your browser's local storage. Zero server tracking.",
 
+    layoutClassic: "Classic",
+    layoutModern: "Modern",
+    layoutStructured: "Structured",
+
     privacyTitle: "Privacy First — 100% Local Storage",
     privacyDesc: "Your data is completely private. All profiles are saved securely within your browser's local storage. We do not track, collect, or send any information to our servers.",
     profilesTitle: "Profiles",
@@ -279,6 +288,10 @@ const uiLabelMap: Record<Language, UILabels> = {
     import: "Importar",
     print: "Imprimir / PDF",
     privacyFooter: "Tu Privacidad, Nuestra Prioridad: Todo se guarda exclusivamente en el almacenamiento local de tu navegador. Cero rastreo.",
+
+    layoutClassic: "Clásico",
+    layoutModern: "Moderno",
+    layoutStructured: "Estructurado",
 
     privacyTitle: "Tu Privacidad Primero — 100% Almacenamiento Local",
     privacyDesc: "Tus datos son completamente privados. Todos los perfiles se guardan de forma segura en tu navegador. No rastreamos, recopilamos ni enviamos nada a nuestros servidores.",
