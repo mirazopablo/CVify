@@ -108,7 +108,7 @@ export function ResumeProvider({ children }: { children: React.ReactNode }) {
   const patchItem = useCallback(<T extends { id: string }>(key: ArrayKey, id: string, patch: Partial<T>) => {
     setDataState((d) => ({
       ...d,
-      [key]: (d[key] as T[]).map((it) => (it.id === id ? { ...it, ...patch } : it)),
+      [key]: (d[key] as unknown as T[]).map((it) => (it.id === id ? { ...it, ...patch } : it)),
     }))
   }, [])
 
