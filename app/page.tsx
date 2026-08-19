@@ -74,8 +74,8 @@ function PageContent() {
           {/* Right: live print preview */}
           <section
             className={cn(
-              "flex-1 overflow-auto bg-muted/40 p-4 lg:p-8",
-              viewMode === "preview" || (viewMode === "edit" && typeof window !== 'undefined' && window.innerWidth >= 1024) ? "block" : "hidden lg:block"
+              "flex-1 overflow-auto bg-muted/40 p-4 lg:p-8 print:!block print:p-0 print:overflow-visible",
+              viewMode === "preview" ? "block" : "hidden lg:block"
             )}
             aria-label="Resume preview"
           >
