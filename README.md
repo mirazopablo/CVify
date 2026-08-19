@@ -19,6 +19,7 @@
 ### 🚀 Features
 
 - **Live Print Preview**: See exactly what your printed/PDF resume will look like as you type.
+- **Multiple ATS-Friendly Layouts**: Choose between Classic, Modern, or Structured (two-column) designs. Powered by CSS without altering the DOM order, ensuring perfect ATS parsing.
 - **ATS-Simulator**: Ensure your resume parses well with Applicant Tracking Systems.
 - **Photo Cropper**: Easily upload and adjust a professional photo.
 - **Profile Manager**: Save and manage different resume profiles.
@@ -73,6 +74,7 @@ This project is Open Source! We welcome contributions. Whether it's fixing bugs,
 ### 🚀 Características
 
 - **Vista previa en vivo**: Mira exactamente cómo se verá tu currículum en PDF/impreso mientras escribes.
+- **Múltiples Plantillas ATS-Friendly**: Elige entre un diseño Clásico, Moderno o Estructurado (dos columnas). Funcionan puramente con CSS manteniendo el orden HTML secuencial, garantizando lectura perfecta por cualquier ATS.
 - **Simulador ATS**: Asegúrate de que tu currículum sea analizado correctamente por los sistemas ATS.
 - **Recortador de fotos**: Sube y ajusta fácilmente una foto profesional.
 - **Gestor de perfiles**: Guarda y administra diferentes perfiles de currículum.
