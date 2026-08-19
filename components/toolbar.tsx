@@ -10,34 +10,27 @@ import { cn } from "@/lib/utils"
 import { ATSSimulator } from "./ats-simulator"
 import { ProfileManager } from "./profile-manager"
 
-export function Toolbar() {
-  const { data, setLanguage, setLayout, setData, loadSample } = useResume()
+export function Toolbar({
+  onOpenProfiles,
+  onOpenAts,
+  onImportClick,
+}: {
+  onOpenProfiles: () => void
+  onOpenAts: () => void
+  onImportClick: () => void
+}) {
+  const { data, setLanguage, setLayout, loadSample } = useResume()
   const ui = useUI()
-  const [atsOpen, setAtsOpen] = useState(false)
-  const [profilesOpen, setProfilesOpen] = useState(false)
-  const importRef = useRef<HTMLInputElement | null>(null)
-  const [importError, setImportError] = useState<string | null>(null)
-
-  const handleImport = async (file: File) => {
-    try {
-      const parsed = await importJSON(file)
-      setData(parsed)
-      setImportError(null)
-    } catch (err) {
-      setImportError(err instanceof Error ? err.message : "Import failed")
-      setTimeout(() => setImportError(null), 3000)
-    }
-  }
 
   return (
-    <header className="no-print flex flex-wrap items-center gap-2 border-b border-border bg-card px-4 py-2.5">
-      <div className="mr-4 flex items-center gap-3">
-        <Image src="/logo.jpeg" alt="CVify Logo" width={80} height={80} className="rounded-md object-cover" />
+    <header className="no-print flex items-center gap-4 border-b border-border bg-card px-4 py-2.5 overflow-x-auto whitespace-nowrap">
+      <div className="flex items-center gap-3 shrink-0">
+        <Image src="/logo.jpeg" alt="CVify Logo" width={80} height={80} className="w-20 h-20 rounded-md object-cover" />
         <h1 className="text-2xl font-extrabold text-foreground tracking-tight">CVify</h1>
       </div>
 
       {/* Language toggle */}
-      <div className="flex items-center overflow-hidden rounded-md border border-border" role="group" aria-label="Language">
+      <div className="flex items-center shrink-0 overflow-hidden rounded-md border border-border" role="group" aria-label="Language">
         {(["en", "es"] as const).map((lng) => (
           <button
             key={lng}
@@ -58,7 +51,7 @@ export function Toolbar() {
       <select
         value={data.layout || "classic"}
         onChange={(e) => setLayout(e.target.value as "classic" | "modern" | "structured")}
-        className="rounded-md border border-border bg-card px-2.5 py-1.5 text-xs font-medium text-foreground hover:bg-muted outline-none focus:ring-2 focus:ring-ring"
+        className="shrink-0 rounded-md border border-border bg-card px-2.5 py-1.5 text-xs font-medium text-foreground hover:bg-muted outline-none focus:ring-2 focus:ring-ring"
         aria-label="Layout"
       >
         <option value="classic">{ui.layoutClassic}</option>
@@ -66,11 +59,12 @@ export function Toolbar() {
         <option value="structured">{ui.layoutStructured}</option>
       </select>
 
-      <div className="ml-auto flex flex-wrap items-center gap-1.5">
-        <ToolbarButton icon={<FolderOpen className="size-4" />} onClick={() => setProfilesOpen(true)}>
+      {/* Desktop only buttons */}
+      <div className="ml-auto hidden lg:flex items-center gap-1.5 shrink-0">
+        <ToolbarButton icon={<FolderOpen className="size-4" />} onClick={onOpenProfiles}>
           {ui.profiles}
         </ToolbarButton>
-        <ToolbarButton icon={<ScanSearch className="size-4" />} onClick={() => setAtsOpen(true)}>
+        <ToolbarButton icon={<ScanSearch className="size-4" />} onClick={onOpenAts}>
           {ui.atsSim}
         </ToolbarButton>
         <ToolbarButton icon={<Sparkles className="size-4" />} onClick={loadSample}>
@@ -79,20 +73,9 @@ export function Toolbar() {
         <ToolbarButton icon={<Download className="size-4" />} onClick={() => exportJSON(data)}>
           {ui.export}
         </ToolbarButton>
-        <ToolbarButton icon={<Upload className="size-4" />} onClick={() => importRef.current?.click()}>
+        <ToolbarButton icon={<Upload className="size-4" />} onClick={onImportClick}>
           {ui.import}
         </ToolbarButton>
-        <input
-          ref={importRef}
-          type="file"
-          accept="application/json"
-          className="hidden"
-          onChange={(e) => {
-            const f = e.target.files?.[0]
-            if (f) handleImport(f)
-            e.target.value = ""
-          }}
-        />
         <button
           type="button"
           onClick={() => printResume(data)}
@@ -102,15 +85,6 @@ export function Toolbar() {
           {ui.print}
         </button>
       </div>
-
-      {importError ? (
-        <p className="w-full text-xs text-destructive" role="alert">
-          {importError}
-        </p>
-      ) : null}
-
-      <ATSSimulator open={atsOpen} onClose={() => setAtsOpen(false)} />
-      <ProfileManager open={profilesOpen} onClose={() => setProfilesOpen(false)} />
     </header>
   )
 }

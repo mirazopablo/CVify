@@ -61,6 +61,11 @@ export interface UILabels {
   referencesTab: string
   themeTab: string
 
+  // Mobile Navigation
+  editBtn: string
+  previewBtn: string
+  optionsBtn: string
+
   // Section Cards & Forms Generic
   addLabel: string
   dragToReorder: string
@@ -209,6 +214,10 @@ const uiLabelMap: Record<Language, UILabels> = {
     referencesTab: "References",
     themeTab: "Theme",
 
+    editBtn: "Edit",
+    previewBtn: "Preview",
+    optionsBtn: "Options",
+
     addLabel: "Add item",
     dragToReorder: "Drag to reorder",
     deleteItem: "Delete item",
@@ -317,6 +326,10 @@ const uiLabelMap: Record<Language, UILabels> = {
     publicationsTab: "Publicaciones",
     referencesTab: "Referencias",
     themeTab: "Tema",
+
+    editBtn: "Editar",
+    previewBtn: "Vista Previa",
+    optionsBtn: "Opciones",
 
     addLabel: "Añadir",
     dragToReorder: "Arrastrar para reordenar",
