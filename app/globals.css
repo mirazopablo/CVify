@@ -1,0 +1,365 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ==========================================================================
+   CV DOCUMENT
+   Single-column, semantic, real-text layout. All colors are driven by the
+   --cv-* CSS variables set inline from the theme config so <input type=color>
+   updates render instantly. Sized to A4 width for a faithful print preview.
+   ========================================================================== */
+
+.cv-root {
+  --cv-accent: #1f6feb;
+  --cv-text: #1a1a1a;
+  --cv-muted: #5c5c5c;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 12mm;
+  margin: 0 auto;
+  background: #ffffff;
+  color: var(--cv-text);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  font-size: 10pt;
+  line-height: 1.35;
+  box-sizing: border-box;
+}
+
+.cv-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--cv-accent);
+}
+.cv-header-main {
+  min-width: 0;
+}
+.cv-name {
+  font-size: 18pt;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cv-accent);
+  margin: 0;
+}
+.cv-title {
+  font-size: 12pt;
+  font-weight: 500;
+  margin: 2px 0 0;
+  color: var(--cv-text);
+}
+.cv-contact,
+.cv-links {
+  font-size: 9pt;
+  color: var(--cv-muted);
+  margin: 2px 0 0;
+  word-break: break-word;
+}
+.cv-photo {
+  width: 24mm;
+  height: 24mm;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.cv-section {
+  margin-bottom: 8px;
+  break-inside: avoid;
+}
+.cv-section-title {
+  font-size: 11pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cv-accent);
+  border-bottom: 1px solid color-mix(in srgb, var(--cv-accent) 35%, transparent);
+  padding-bottom: 3px;
+  margin: 0 0 4px;
+}
+
+.cv-entry {
+  margin-bottom: 6px;
+  break-inside: avoid;
+}
+.cv-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cv-entry-title {
+  font-size: 10pt;
+  font-weight: 600;
+  margin: 0;
+  color: var(--cv-text);
+}
+.cv-entry-meta {
+  font-size: 9pt;
+  color: var(--cv-muted);
+  white-space: nowrap;
+  margin: 0;
+}
+.cv-entry-meta-inline {
+  font-size: 9pt;
+  color: var(--cv-muted);
+  margin: 1px 0 0;
+}
+.cv-entry-sub {
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--cv-muted);
+  margin: 1px 0 3px;
+}
+.cv-sep {
+  color: var(--cv-muted);
+  font-weight: 400;
+}
+.cv-text {
+  margin: 3px 0 0;
+  color: var(--cv-text);
+  text-align: justify;
+}
+.cv-skill-cat {
+  color: var(--cv-text);
+}
+.cv-bullets {
+  margin: 2px 0 0;
+  padding-left: 16px;
+  list-style: disc;
+  text-align: justify;
+}
+.cv-bullets li {
+  margin-bottom: 0px;
+}
+
+/* On-screen preview scaling wrapper */
+.cv-viewport {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   PRINT: native window.print() -> real-text PDF with linear reading order.
+   Everything outside the CV is hidden. A4 page with 15mm margins.
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  /* Robust isolation: hide everything, then reveal only the CV document.
+     visibility (not display) preserves the CV's own box, and absolute
+     positioning lets it escape any scrolling/overflow-hidden ancestor. */
+  body * {
+    visibility: hidden;
+  }
+  #cv-document,
+  #cv-document * {
+    visibility: visible;
+  }
+
+  /* Belt-and-suspenders: explicitly hide app chrome */
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-viewport {
+    box-shadow: none !important;
+  }
+
+  /* The document padding is replaced by the @page margin when printing */
+  #cv-document.cv-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 10pt;
+  }
+
+  .cv-section,
+  .cv-entry {
+    break-inside: avoid;
+  }
+
+  /* Ensure accent colors are preserved by the print engine */
+  .cv-root,
+  .cv-name,
+  .cv-section-title {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
