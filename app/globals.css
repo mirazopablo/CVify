@@ -163,6 +163,13 @@
   }
 }
 
+@media (max-width: 1024px) {
+  /* Prevent iOS Safari auto-zoom by forcing 16px on inputs */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
 /* ==========================================================================
    CV DOCUMENT
    Single-column, semantic, real-text layout. All colors are driven by the
@@ -297,9 +304,29 @@
 }
 
 /* On-screen preview scaling wrapper */
+.cv-viewport-wrapper {
+  transition: all 0.2s ease;
+}
+
 .cv-viewport {
   background: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .cv-viewport-wrapper {
+    width: 100% !important;
+    max-width: 100vw;
+    display: block; 
+    overflow-x: auto; /* Permitir scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    padding-bottom: 20px;
+  }
+  .cv-viewport {
+    /* Restaurar el tamaño original y centrar si sobra espacio */
+    margin: 0 auto;
+    transform: none;
+  }
 }
 
 /* ==========================================================================
