@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./logo.jpeg" alt="CVify Logo" width="200" />
+  <img src="./logo.jpeg" alt="CVify Logo" width="400" />
   <h1>CVify</h1>
   <p>An ATS-friendly Resume/CV Builder | Creador de Curriculums optimizado para ATS</p>
   
