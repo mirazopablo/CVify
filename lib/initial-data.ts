@@ -46,7 +46,7 @@ export const sampleResume: ResumeData = {
     fullName: "Alex Morgan",
     jobTitle: "Senior Backend Engineer",
     email: "alex.morgan@email.com",
-    phone: "+1 (555) 012-3456",
+    phone: "+15550123456",
     location: "Austin, TX",
     website: "alexmorgan.dev",
     github: "github.com/alexmorgan",

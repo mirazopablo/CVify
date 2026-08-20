@@ -170,6 +170,24 @@
   }
 }
 
+.PhoneInputInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  margin-left: 8px;
+}
+
+.PhoneInputCountrySelect {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+.PhoneInputCountrySelect option {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
 /* ==========================================================================
    CV DOCUMENT
    Single-column, semantic, real-text layout. All colors are driven by the
