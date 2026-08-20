@@ -1,7 +1,7 @@
 "use client"
 
 import { useResume, useUI } from "@/lib/resume-context"
-import { TextField } from "./fields"
+import { TextField, PhoneField } from "./fields"
 import { PhotoCropper } from "../photo-cropper"
 
 export function HeaderForm() {
@@ -17,7 +17,7 @@ export function HeaderForm() {
         <TextField label={ui.fullName} value={h.fullName} onChange={(v) => updateHeader({ fullName: v })} />
         <TextField label={ui.jobTitle} value={h.jobTitle} onChange={(v) => updateHeader({ jobTitle: v })} />
         <TextField label={ui.email} type="email" value={h.email} onChange={(v) => updateHeader({ email: v })} />
-        <TextField label={ui.phone} value={h.phone} onChange={(v) => updateHeader({ phone: v })} />
+        <PhoneField label={ui.phone} value={h.phone} onChange={(v) => updateHeader({ phone: v })} />
         <TextField label={ui.location} value={h.location} onChange={(v) => updateHeader({ location: v })} />
         <TextField label={ui.website} value={h.website} onChange={(v) => updateHeader({ website: v })} />
         <TextField label={ui.github} value={h.github} onChange={(v) => updateHeader({ github: v })} />

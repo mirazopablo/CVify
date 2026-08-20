@@ -1,6 +1,8 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import PhoneInput from "react-phone-number-input"
+import "react-phone-number-input/style.css"
 
 // Lightweight labeled form primitives shared across every editor section.
 
@@ -72,6 +74,22 @@ export function CheckboxField({
         className="h-4 w-4 rounded border-input accent-primary"
       />
       {label}
+    </label>
+  )
+}
+
+export function PhoneField({ label, value, onChange, placeholder, className }: TextFieldProps) {
+  return (
+    <label className={cn("flex flex-col gap-1.5", className)}>
+      <span className="text-xs font-medium text-muted-foreground">{label}</span>
+      <PhoneInput
+        international
+        defaultCountry="US"
+        value={value}
+        onChange={(v: string | undefined) => onChange(v || "")}
+        placeholder={placeholder}
+        className="cv-phone-wrapper h-9 rounded-md border border-input bg-background px-3 text-sm outline-none transition-colors focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/30"
+      />
     </label>
   )
 }
