@@ -25,7 +25,7 @@ export function Toolbar({
   return (
     <header className="no-print flex items-center gap-4 border-b border-border bg-card px-4 py-2.5 overflow-x-auto whitespace-nowrap">
       <div className="flex items-center gap-3 shrink-0">
-        <Image src="/logo.jpeg" alt="CVify Logo" width={80} height={80} priority className="w-20 h-20 rounded-md object-cover" />
+        <Image src="/logo-cropped.jpeg" alt="CVify Logo" width={256} height={256} priority className="w-28 h-28 sm:w-32 sm:h-32 rounded-md object-contain" />
         <h1 className="text-2xl font-extrabold text-foreground tracking-tight">CVify</h1>
       </div>
 
