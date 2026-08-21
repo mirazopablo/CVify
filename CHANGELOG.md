@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/mirazopablo/CVify/compare/v1.1.0...v1.1.1) (2026-08-21)
+
+
+### Bug Fixes
+
+* **ci:** remove unused resolutions to fix lockfile mismatch ([7a9b541](https://github.com/mirazopablo/CVify/commit/7a9b541d5da34b3c1319a0fdfdf8d765035d4bab))
+* **ci:** update pnpm overrides syntax for v10 compatibility ([1594a38](https://github.com/mirazopablo/CVify/commit/1594a38797c690f01abe799d64c54329c8c13c19))
+* **deps:** fix pnpm workspace ([f1026fa](https://github.com/mirazopablo/CVify/commit/f1026faa5072aacb3e7d005d4e2a4b214ab250c4))
+
 ## 1.1.0 (2026-08-20)
 
 
