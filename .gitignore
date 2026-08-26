@@ -46,3 +46,6 @@ __v0_jsx-dev-runtime.ts
 # backups and archives
 *.zip
 resume-backup.json
+
+# scripts locales
+release.sh
