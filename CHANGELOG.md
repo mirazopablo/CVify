@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/mirazopablo/CVify/compare/v1.1.2...v1.2.0) (2026-08-26)
+
+
+### Features
+
+* **ui:** add Cafecito donation button ([bfabcd6](https://github.com/mirazopablo/CVify/commit/bfabcd64ef78edd711376ad08e90aa9fe084c86c))
+
 ### [1.1.2](https://github.com/mirazopablo/CVify/compare/v1.1.1...v1.1.2) (2026-08-21)
 
 ### [1.1.1](https://github.com/mirazopablo/CVify/compare/v1.1.0...v1.1.1) (2026-08-21)
