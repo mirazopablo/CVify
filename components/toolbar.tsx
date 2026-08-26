@@ -61,6 +61,19 @@ export function Toolbar({
 
       {/* Desktop only buttons */}
       <div className="ml-auto hidden lg:flex items-center gap-1.5 shrink-0">
+        <a 
+          href="https://cafecito.app/mirazopablo" 
+          rel="noopener noreferrer" 
+          target="_blank"
+          className="flex items-center transition-transform hover:scale-105 mr-2"
+        >
+          <img 
+            src="https://cdn.cafecito.app/imgs/buttons/button_5.png" 
+            srcSet="https://cdn.cafecito.app/imgs/buttons/button_5.png 1x, https://cdn.cafecito.app/imgs/buttons/button_5_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_5_3.75x.png 3.75x" 
+            alt="Invitame un café en cafecito.app" 
+            className="h-8 w-auto"
+          />
+        </a>
         <ToolbarButton icon={<FolderOpen className="size-4" />} onClick={onOpenProfiles}>
           {ui.profiles}
         </ToolbarButton>

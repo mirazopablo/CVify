@@ -63,6 +63,24 @@ export function MobileOptionsPanel({
           label={ui.print}
           onClick={onPrintClick}
         />
+
+        <div className="h-px bg-border my-2" />
+        
+        <div className="flex justify-center pt-2">
+          <a 
+            href="https://cafecito.app/mirazopablo" 
+            rel="noopener noreferrer" 
+            target="_blank"
+            className="transition-transform hover:scale-105"
+          >
+            <img 
+              src="https://cdn.cafecito.app/imgs/buttons/button_5.png" 
+              srcSet="https://cdn.cafecito.app/imgs/buttons/button_5.png 1x, https://cdn.cafecito.app/imgs/buttons/button_5_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_5_3.75x.png 3.75x" 
+              alt="Invitame un café en cafecito.app" 
+              className="h-10 w-auto"
+            />
+          </a>
+        </div>
       </div>
     </div>
   )
