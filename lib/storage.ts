@@ -99,6 +99,12 @@ export function importJSON(file: File): Promise<ResumeData> {
           merged.summary = parsed.summary || ""
           
           const safeArray = (arr: any) => Array.isArray(arr) ? arr : []
+          const asString = (val: any) => (Array.isArray(val) ? val.join(", ") : String(val || ""))
+          const asMultiline = (desc: any, highlights: any) => {
+             const d = desc ? String(desc) : ""
+             const h = Array.isArray(highlights) ? highlights.map(s => `- ${s}`).join("\n") : ""
+             return [d, h].filter(Boolean).join("\n\n")
+          }
           
           merged.experience = safeArray(parsed.experience).map((e: any) => ({
             id: e.id || uid(),
@@ -108,7 +114,7 @@ export function importJSON(file: File): Promise<ResumeData> {
             startDate: e.startDate || "",
             endDate: e.endDate || "",
             current: !!e.current,
-            description: e.description || ""
+            description: asMultiline(e.description, e.highlights)
           }))
           
           merged.education = safeArray(parsed.education).map((ed: any) => ({
@@ -118,13 +124,13 @@ export function importJSON(file: File): Promise<ResumeData> {
             location: ed.location || "",
             startDate: ed.startDate || "",
             endDate: ed.endDate || "",
-            description: ed.description || ""
+            description: asMultiline(ed.description, ed.highlights)
           }))
           
           merged.skills = safeArray(parsed.skills).map((s: any) => ({
             id: s.id || uid(),
             category: s.category || "",
-            items: s.items || ""
+            items: asString(s.items)
           }))
           
           merged.projects = safeArray(parsed.projects).map((p: any) => ({
@@ -132,12 +138,12 @@ export function importJSON(file: File): Promise<ResumeData> {
             name: p.name || "",
             url: p.url || "",
             description: p.description || "",
-            tech: p.tech || ""
+            tech: asString(p.tech || p.highlights)
           }))
           
           merged.languages = safeArray(parsed.languages).map((l: any) => ({
             id: l.id || uid(),
-            name: l.name || "",
+            name: l.name || l.language || "",
             level: l.level || ""
           }))
           
