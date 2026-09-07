@@ -43,8 +43,15 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
     "--cv-muted": data.theme.muted,
   } as CSSProperties
 
-  const contactLine = [h.email, h.phone, h.location].filter(Boolean).join("  •  ")
-  const links = [h.website, h.github, h.linkedin].filter(Boolean)
+  const contactElements = [
+    h.email && <a href={`mailto:${h.email}`}>{h.email}</a>,
+    h.phone && <a href={`tel:${h.phone}`}>{h.phone}</a>,
+    h.location
+  ].filter(Boolean)
+
+  const linkElements = [h.website, h.github, h.linkedin].filter(Boolean)
+
+  const makeHref = (url: string) => (url.startsWith("http") ? url : `https://${url}`)
 
   return (
     <article id="cv-document" className={`cv-root template-${data.layout || "classic"}`} style={styleVars} lang={data.language}>
@@ -53,8 +60,28 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
         <div className="cv-header-main">
           <h1 className="cv-name">{h.fullName || "Your Name"}</h1>
           {h.jobTitle ? <p className="cv-title">{h.jobTitle}</p> : null}
-          {contactLine ? <p className="cv-contact">{contactLine}</p> : null}
-          {links.length ? <p className="cv-links">{links.join("  •  ")}</p> : null}
+          {contactElements.length ? (
+            <p className="cv-contact">
+              {contactElements.map((el, i) => (
+                <span key={i}>
+                  {el}
+                  {i < contactElements.length - 1 ? "  •  " : ""}
+                </span>
+              ))}
+            </p>
+          ) : null}
+          {linkElements.length ? (
+            <p className="cv-links">
+              {linkElements.map((link, i) => (
+                <span key={i}>
+                  <a href={makeHref(link)} target="_blank" rel="noopener noreferrer">
+                    {link}
+                  </a>
+                  {i < linkElements.length - 1 ? "  •  " : ""}
+                </span>
+              ))}
+            </p>
+          ) : null}
         </div>
         {h.photo ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -133,7 +160,13 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
             <article key={p.id} className="cv-entry">
               <div className="cv-entry-head">
                 <p className="cv-entry-title">{p.name}</p>
-                {p.url ? <p className="cv-entry-meta">{p.url}</p> : null}
+                {p.url ? (
+                  <p className="cv-entry-meta">
+                    <a href={makeHref(p.url)} target="_blank" rel="noopener noreferrer">
+                      {p.url}
+                    </a>
+                  </p>
+                ) : null}
               </div>
               {p.description ? <p className="cv-text">{p.description}</p> : null}
               {p.tech ? (
@@ -170,7 +203,13 @@ export function ResumePreview({ data: dataProp }: { data?: ResumeData }) {
             <article key={pb.id} className="cv-entry">
               <p className="cv-entry-title">{pb.title}</p>
               <p className="cv-entry-sub">{[pb.publisher, pb.date].filter(Boolean).join("  •  ")}</p>
-              {pb.url ? <p className="cv-entry-meta-inline">{pb.url}</p> : null}
+              {pb.url ? (
+                <p className="cv-entry-meta-inline">
+                  <a href={makeHref(pb.url)} target="_blank" rel="noopener noreferrer">
+                    {pb.url}
+                  </a>
+                </p>
+              ) : null}
             </article>
           ))}
         </section>
