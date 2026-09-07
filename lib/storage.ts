@@ -1,5 +1,5 @@
 import type { ResumeData, ResumeProfile } from "./resume-types"
-import { uid } from "./initial-data"
+import { uid, emptyResume } from "./initial-data"
 
 // ============================================================================
 // localStorage-backed profile store + JSON backup helpers.
@@ -92,7 +92,71 @@ export function importJSON(file: File): Promise<ResumeData> {
         const parsed = JSON.parse(String(reader.result))
         // minimal shape validation
         if (parsed && typeof parsed === "object" && "header" in parsed) {
-          resolve(parsed as ResumeData)
+          const merged = { ...emptyResume, ...parsed }
+          
+          merged.header = { ...emptyResume.header, ...(parsed.header || {}) }
+          merged.theme = { ...emptyResume.theme, ...(parsed.theme || {}) }
+          merged.summary = parsed.summary || ""
+          
+          const safeArray = (arr: any) => Array.isArray(arr) ? arr : []
+          
+          merged.experience = safeArray(parsed.experience).map((e: any) => ({
+            id: e.id || uid(),
+            role: e.role || "",
+            company: e.company || "",
+            location: e.location || "",
+            startDate: e.startDate || "",
+            endDate: e.endDate || "",
+            current: !!e.current,
+            description: e.description || ""
+          }))
+          
+          merged.education = safeArray(parsed.education).map((ed: any) => ({
+            id: ed.id || uid(),
+            degree: ed.degree || "",
+            institution: ed.institution || "",
+            location: ed.location || "",
+            startDate: ed.startDate || "",
+            endDate: ed.endDate || "",
+            description: ed.description || ""
+          }))
+          
+          merged.skills = safeArray(parsed.skills).map((s: any) => ({
+            id: s.id || uid(),
+            category: s.category || "",
+            items: s.items || ""
+          }))
+          
+          merged.projects = safeArray(parsed.projects).map((p: any) => ({
+            id: p.id || uid(),
+            name: p.name || "",
+            url: p.url || "",
+            description: p.description || "",
+            tech: p.tech || ""
+          }))
+          
+          merged.languages = safeArray(parsed.languages).map((l: any) => ({
+            id: l.id || uid(),
+            name: l.name || "",
+            level: l.level || ""
+          }))
+          
+          merged.references = safeArray(parsed.references).map((r: any) => ({
+            id: r.id || uid(),
+            name: r.name || "",
+            relation: r.relation || "",
+            contact: r.contact || ""
+          }))
+          
+          merged.publications = safeArray(parsed.publications).map((p: any) => ({
+            id: p.id || uid(),
+            title: p.title || "",
+            publisher: p.publisher || "",
+            date: p.date || "",
+            url: p.url || ""
+          }))
+          
+          resolve(merged as ResumeData)
         } else {
           reject(new Error("Invalid resume JSON structure."))
         }
