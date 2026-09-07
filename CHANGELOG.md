@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/mirazopablo/CVify/compare/v1.2.1...v1.3.0) (2026-09-07)
+
+
+### Features
+
+* **storage:** add support for ai generated json formats ([bf546b5](https://github.com/mirazopablo/CVify/commit/bf546b529791d7e64f737fb667e45de4f2a0ce65))
+
 ### [1.2.1](https://github.com/mirazopablo/CVify/compare/v1.2.0...v1.2.1) (2026-09-07)
 
 
