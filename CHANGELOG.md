@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/mirazopablo/CVify/compare/v1.4.0...v1.4.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* **pdf-engine:** wait for font load and embed explicit bold weights for PDF OCR readability ([6beb143](https://github.com/mirazopablo/CVify/commit/6beb143f6f63aae035a57e1bcf24fc5307728a7c)), closes [#1](https://github.com/mirazopablo/CVify/issues/1)
+
 ## [1.4.0](https://github.com/mirazopablo/CVify/compare/v1.3.0...v1.4.0) (2026-09-07)
 
 
