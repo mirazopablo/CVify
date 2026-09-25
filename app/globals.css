@@ -465,11 +465,12 @@
     break-inside: avoid;
   }
 
-  /* Ensure accent colors are preserved by the print engine */
+  /* Ensure accent colors and font integrity are preserved by the print engine */
   .cv-root,
   .cv-name,
   .cv-section-title {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    font-synthesis: none;
   }
 }

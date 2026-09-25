@@ -17,7 +17,7 @@ function upsertMeta(name: string, content: string) {
   el.setAttribute("content", content)
 }
 
-export function printResume(data: ResumeData) {
+export async function printResume(data: ResumeData) {
   const meta = buildMetadata(data)
   const prevTitle = document.title
 
@@ -36,6 +36,14 @@ export function printResume(data: ResumeData) {
     window.removeEventListener("afterprint", restore)
   }
   window.addEventListener("afterprint", restore)
+
+  if (typeof document !== "undefined" && document.fonts?.ready) {
+    try {
+      await document.fonts.ready
+    } catch {
+      // Ignore font readiness errors and proceed to print
+    }
+  }
 
   window.print()
 }
