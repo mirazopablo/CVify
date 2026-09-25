@@ -61,7 +61,7 @@ export const sampleResume: ResumeData = {
       role: "Senior Backend Engineer",
       company: "Nimbus Data",
       location: "Remote",
-      startDate: "2021",
+      startDate: "may 2021",
       endDate: "",
       current: true,
       description:
@@ -72,8 +72,8 @@ export const sampleResume: ResumeData = {
       role: "Backend Engineer",
       company: "Corewave",
       location: "Austin, TX",
-      startDate: "2017",
-      endDate: "2021",
+      startDate: "march 2017",
+      endDate: "december 2021",
       current: false,
       description:
         "Built billing and subscription services processing $5M+ monthly.\nIntroduced contract testing that reduced integration incidents by 60%.",
@@ -82,12 +82,12 @@ export const sampleResume: ResumeData = {
   education: [
     {
       id: "edu1",
-      degree: "B.S. in Computer Science",
-      institution: "University of Texas at Austin",
-      location: "Austin, TX",
-      startDate: "2013",
-      endDate: "2017",
-      description: "Graduated with honors. Focus on distributed systems and databases.",
+      degree: "Bachelor of computer systems engineering",
+      institution: "Universidad Politécnica de Madrid",
+      location: "Madrid, Spain",
+      startDate: "september 2010",
+      endDate: "june 2017",
+      description: "Key studies: data structures, algorithms, databases, operating systems, networks.",
     },
   ],
   skills: [
